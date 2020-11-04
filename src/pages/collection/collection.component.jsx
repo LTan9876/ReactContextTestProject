@@ -43,8 +43,7 @@ const CollectionPage = ({ match }) => {
                   <CollectionItem key={item.id} item={item} />
                 ))}
               </div>
-            </div> 
-          
+            </div>       
   );
 };
 
