@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -11,9 +11,13 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
+import CurrentUserContext from '../../context/contexts/current-user/current-user.context'
+
 import './header.styles.scss';
 
-const Header = ({ currentUser, hidden }) => (
+const Header = ({ hidden }) => {
+  const currentUser = useContext(CurrentUserContext)
+  return(
   <div className='header'>
     <Link className='logo-container' to='/'>
       <Logo className='logo' />
@@ -38,7 +42,7 @@ const Header = ({ currentUser, hidden }) => (
     </div>
     {hidden ? null : <CartDropdown />}
   </div>
-);
+)}
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,

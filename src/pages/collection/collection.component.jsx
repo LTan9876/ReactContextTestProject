@@ -7,7 +7,7 @@ import { selectCollection } from '../../redux/shop/shop.selectors';
 
 import './collection.styles.scss';
 
-import CollectionsContext from '../../context/collections/collections.context'
+import CollectionsContext from '../../context/contexts/collections/collections.context'
 
 const CollectionPage = ({ match }) => {
   //use context by wrapping it around things like a component
