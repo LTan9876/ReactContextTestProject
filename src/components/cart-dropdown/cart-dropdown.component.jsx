@@ -12,8 +12,8 @@ import './cart-dropdown.styles.scss';
 
 import {CartContext} from '../../providers/cart/cart.provider'
 
-const CartDropdown = ({ history, dispatch }) => {
-  const { CartItems } = useContext(CartContext)
+const CartDropdown = ({ history }) => {
+  const { CartItems, toggleHidden } = useContext(CartContext)
   return (<div className='cart-dropdown'>
     <div className='cart-items'>
       {cartItems.length ? (
@@ -27,7 +27,7 @@ const CartDropdown = ({ history, dispatch }) => {
     <CustomButton
       onClick={() => {
         history.push('/checkout');
-        dispatch(toggleCartHidden());
+        toggleHidden()
       }}
     >
       GO TO CHECKOUT
